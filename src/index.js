@@ -11,7 +11,12 @@ app.get('/', function (req, res, next) {
   });
 });
 
+app.get('*', function (req, res, next) {
+  return res.status(200).json({
+    message: 'Not found',
+  });
+});
 app.use(errorHandler);
-app.listen(port, function () {
+app.listen(port, '127.0.0.1', function () {
   console.log('Server running');
 });
